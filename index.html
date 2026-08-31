@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARPER E.I.R.L. — Ingeniería Naval e Industrial</title>
+<meta name="description" content="ARPER E.I.R.L. — Diseño, fabricación, montaje, reparación y mantenimiento naval e industrial. Atención personalizada, respuesta ágil, máxima calidad.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0E2A3D;
+    --navy-deep:#091C29;
+    --amber:#E3A73B;
+    --amber-dim:#B4832A;
+    --steel:#5C6670;
+    --bone:#F5F1E8;
+    --ink:#12181C;
+    --line: rgba(245,241,232,0.16);
+    --line-dark: rgba(18,24,28,0.12);
+    --maxw: 1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bone);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+  }
+  h1,h2,h3,.disp{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    letter-spacing:0.01em;
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  .tag{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:600;
+    font-size:0.85rem;
+    letter-spacing:0.14em;
+    color:var(--amber-dim);
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--navy);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    height:74px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:12px;
+    color:var(--bone); text-decoration:none;
+  }
+  .brand-mark{width:34px; height:34px; flex:none;}
+  .brand-text{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:800; font-size:1.32rem; color:var(--bone);
+    letter-spacing:0.02em; line-height:1;
+  }
+  .brand-text span{display:block; font-family:'Work Sans'; font-weight:500; font-size:0.62rem; letter-spacing:0.16em; color:var(--amber); margin-top:3px;}
+  nav.links{display:flex; gap:34px; align-items:center;}
+  nav.links a{
+    color:var(--bone); text-decoration:none;
+    font-size:0.92rem; font-weight:500; opacity:0.82;
+    position:relative; padding:4px 0;
+  }
+  nav.links a:hover{opacity:1;}
+  .nav-cta{
+    background:var(--amber); color:var(--navy-deep) !important;
+    padding:10px 20px; font-weight:600; opacity:1 !important;
+    text-decoration:none; font-size:0.88rem;
+    border:1px solid var(--amber);
+  }
+  .nav-cta:hover{background:transparent; color:var(--amber) !important;}
+  .burger{display:none; background:none; border:none; cursor:pointer; padding:6px;}
+  .burger span{display:block; width:24px; height:2px; background:var(--bone); margin:5px 0;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:var(--navy);
+    color:var(--bone);
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid; grid-template-columns: 1.15fr 0.85fr; align-items:center; gap:40px;
+    padding:88px 0 76px;
+    position:relative; z-index:2;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 5.2vw, 4.1rem);
+    line-height:0.98;
+    color:var(--bone);
+    text-transform:uppercase;
+  }
+  .hero h1 em{font-style:normal; color:var(--amber);}
+  .hero p.lead{
+    font-size:1.08rem; color:rgba(245,241,232,0.78);
+    max-width:46ch; margin:22px 0 34px;
+  }
+  .hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--amber); color:var(--navy-deep);
+    border:1px solid var(--amber);
+    padding:14px 26px; font-weight:600; text-decoration:none;
+    font-size:0.95rem; display:inline-block;
+  }
+  .btn-primary:hover{background:var(--amber-dim); border-color:var(--amber-dim);}
+  .btn-ghost{
+    border:1px solid rgba(245,241,232,0.4); color:var(--bone);
+    padding:14px 26px; font-weight:600; text-decoration:none;
+    font-size:0.95rem; display:inline-block;
+  }
+  .btn-ghost:hover{border-color:var(--bone);}
+  .hero-figure{
+    position:relative; display:flex; align-items:center; justify-content:center;
+  }
+  .gear-svg{width:100%; max-width:400px; height:auto;}
+  .gear-svg .g1{transform-origin:200px 200px; animation:spin 34s linear infinite;}
+  .gear-svg .g2{transform-origin:314px 314px; animation:spin-rev 22s linear infinite;}
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  @keyframes spin-rev{ to{ transform:rotate(-360deg); } }
+  @media (prefers-reduced-motion: reduce){
+    .gear-svg .g1, .gear-svg .g2{animation:none;}
+  }
+  .hero-stats{
+    display:flex; gap:0; margin-top:56px; border-top:1px solid var(--line);
+  }
+  .hero-stats div{
+    flex:1; padding:20px 0 0; border-right:1px solid var(--line);
+  }
+  .hero-stats div:last-child{border-right:none;}
+  .hero-stats strong{
+    font-family:'Barlow Condensed'; font-size:1.9rem; color:var(--amber); display:block; font-weight:700;
+  }
+  .hero-stats span{font-size:0.82rem; color:rgba(245,241,232,0.68);}
+
+  /* ---------- Section shell ---------- */
+  section{padding:96px 0;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:24px; margin-bottom:52px; border-bottom:1px solid var(--line-dark); padding-bottom:26px;
+  }
+  .section-head h2{
+    font-size:clamp(2rem, 3.6vw, 2.9rem); text-transform:uppercase; line-height:1;
+  }
+  .section-num{
+    font-family:'Barlow Condensed'; font-weight:600; color:var(--steel); font-size:0.95rem;
+  }
+
+  /* ---------- Nosotros ---------- */
+  .about{background:var(--bone);}
+  .about-grid{display:grid; grid-template-columns: 0.9fr 1.1fr; gap:64px;}
+  .about-grid p{color:#333; max-width:56ch; font-size:1.03rem;}
+  .about-grid p + p{margin-top:16px;}
+  .hse-badge{
+    margin-top:28px; display:inline-flex; gap:10px; align-items:center;
+    border:1px solid var(--line-dark); padding:10px 16px; font-size:0.82rem; color:var(--navy);
+    font-weight:600;
+  }
+  .mv-list{display:flex; flex-direction:column; gap:28px;}
+  .mv-item{border-left:3px solid var(--amber); padding-left:22px;}
+  .mv-item h3{font-size:1.5rem; text-transform:uppercase; color:var(--navy); margin-bottom:8px;}
+  .mv-item p{color:#333; font-size:0.98rem; margin:0; max-width:60ch;}
+
+  /* ---------- Valores ---------- */
+  .values{background:var(--navy); color:var(--bone);}
+  .values .section-head{border-bottom-color:var(--line);}
+  .values .section-num{color:rgba(245,241,232,0.5);}
+  .values-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .value-card{background:var(--navy); padding:34px 26px;}
+  .value-card .vnum{font-family:'Barlow Condensed'; color:var(--amber); font-size:1.1rem; font-weight:700;}
+  .value-card h3{font-size:1.3rem; margin:14px 0 10px; text-transform:uppercase; color:var(--bone);}
+  .value-card p{font-size:0.92rem; color:rgba(245,241,232,0.72); margin:0;}
+
+  /* ---------- Servicios ---------- */
+  .services{background:var(--bone);}
+  .service-block{
+    border-top:1px solid var(--line-dark);
+    padding:38px 0;
+    display:grid; grid-template-columns: 0.5fr 1.5fr; gap:40px;
+  }
+  .service-block:last-child{border-bottom:1px solid var(--line-dark);}
+  .service-head{display:flex; align-items:flex-start; gap:14px;}
+  .service-icon{
+    width:44px; height:44px; flex:none; border:1px solid var(--navy); display:flex; align-items:center; justify-content:center;
+  }
+  .service-icon svg{width:22px; height:22px;}
+  .service-head h3{font-size:1.55rem; text-transform:uppercase; color:var(--navy); line-height:1.05;}
+  .service-list{
+    columns:2; column-gap:40px; margin:0; padding:0; list-style:none;
+  }
+  .service-list li{
+    font-size:0.96rem; color:#333; padding:9px 0 9px 18px; position:relative;
+    break-inside:avoid; border-bottom:1px solid var(--line-dark);
+  }
+  .service-list li::before{
+    content:''; position:absolute; left:0; top:16px; width:7px; height:2px; background:var(--amber);
+  }
+
+  /* ---------- Clientes ---------- */
+  .clients{background:var(--navy); color:var(--bone); text-align:center;}
+  .clients .tag{display:block; margin-bottom:14px; text-align:left;}
+  .clients h2{font-size:clamp(1.6rem,3vw,2.2rem); text-transform:uppercase; margin-bottom:44px; text-align:left;}
+  .client-row{
+    display:flex; flex-wrap:wrap; gap:14px;
+  }
+  .client-chip{
+    border:1px solid var(--line); padding:16px 28px;
+    font-family:'Barlow Condensed'; font-size:1.15rem; letter-spacing:0.03em;
+    color:var(--bone); text-transform:uppercase; font-weight:600;
+  }
+
+  /* ---------- Contacto ---------- */
+  .contact{background:var(--bone);}
+  .contact-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px;}
+  .contact-info p{color:#333; max-width:46ch; font-size:1.02rem; margin-top:14px;}
+  .contact-detail{margin-top:32px; display:flex; flex-direction:column; gap:18px;}
+  .contact-detail div{border-top:1px solid var(--line-dark); padding-top:14px;}
+  .contact-detail .dlabel{font-family:'Barlow Condensed'; font-weight:600; color:var(--steel); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase;}
+  .contact-detail .dval{font-size:1.02rem; color:var(--navy); font-weight:600; margin-top:4px;}
+
+  form{display:flex; flex-direction:column; gap:18px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  label{font-size:0.8rem; font-weight:600; letter-spacing:0.06em; color:var(--steel); text-transform:uppercase; display:block; margin-bottom:7px;}
+  input, textarea, select{
+    width:100%; border:1px solid var(--line-dark); background:#fff;
+    padding:13px 14px; font-family:'Work Sans'; font-size:0.96rem; color:var(--ink);
+  }
+  input:focus, textarea:focus, select:focus{outline:2px solid var(--amber); outline-offset:1px; border-color:var(--amber);}
+  textarea{resize:vertical; min-height:110px;}
+  .submit-btn{
+    background:var(--navy); color:var(--bone); border:1px solid var(--navy);
+    padding:15px 24px; font-weight:600; cursor:pointer; font-size:0.95rem; align-self:flex-start;
+  }
+  .submit-btn:hover{background:var(--navy-deep);}
+  .form-note{font-size:0.85rem; color:var(--steel); margin-top:6px; min-height:1.2em;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--navy-deep); color:rgba(245,241,232,0.6); padding:40px 0;}
+  .foot-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; font-size:0.85rem;}
+  .foot-row .brand-text{font-size:1.05rem;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    nav.links{
+      position:fixed; inset:74px 0 0 0; background:var(--navy);
+      flex-direction:column; align-items:flex-start; padding:30px 28px;
+      gap:22px; transform:translateX(100%); transition:transform .3s ease;
+      border-top:1px solid var(--line);
+    }
+    nav.links.open{transform:translateX(0);}
+    .burger{display:block;}
+    .hero-grid{grid-template-columns:1fr; padding-top:56px;}
+    .hero-figure{order:-1; max-width:220px; margin:0 auto 20px;}
+    .hero-stats{flex-wrap:wrap;}
+    .hero-stats div{flex:1 1 45%; border-right:none; border-top:1px solid var(--line); padding-top:14px; margin-top:14px;}
+    .about-grid, .contact-grid{grid-template-columns:1fr; gap:40px;}
+    .values-grid{grid-template-columns:1fr 1fr;}
+    .service-block{grid-template-columns:1fr; gap:16px;}
+    .service-list{columns:1;}
+    .form-row{grid-template-columns:1fr;}
+    section{padding:64px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#inicio" class="brand">
+      <svg class="brand-mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 8l6 12 12-6 2 13 13 2-6 12 12 6-12 6 6 12-13 2-2 13-12-6-6 12-6-12-12 6-2-13-13-2 6-12-12-6 12-6-6-12 13-2 2-13 12 6z" fill="#E3A73B"/>
+        <circle cx="50" cy="50" r="20" fill="#0E2A3D"/>
+      </svg>
+      <span class="brand-text">ARPER E.I.R.L.<span>INGENIERÍA NAVAL E INDUSTRIAL</span></span>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#contacto" class="nav-cta">Solicitar cotización</a>
+    </nav>
+    <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="tag">DISEÑO · FABRICACIÓN · MONTAJE · REPARACIÓN · MANTENIMIENTO</p>
+      <h1 style="margin-top:14px;">Ingeniería naval<br>e industrial <em>de precisión</em></h1>
+      <p class="lead">En ARPER E.I.R.L. resolvemos los desafíos técnicos de tu flota o planta con atención personalizada, respuesta ágil y estrictas políticas de Seguridad, Salud y Protección del Medio Ambiente (HSE).</p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn-primary">Solicitar cotización</a>
+        <a href="#servicios" class="btn-ghost">Ver especialidades</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>HSE</strong><span>Política estricta de Seguridad y Medio Ambiente</span></div>
+        <div><strong>24/7</strong><span>Respuesta ágil ante emergencias operativas</span></div>
+        <div><strong>Nac. + Imp.</strong><span>Repuestos nacionales e importados</span></div>
+      </div>
+    </div>
+    <div class="hero-figure">
+      <svg class="gear-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g class="g1">
+          <path d="M200 40l14 28 28-14 6 30 30 6-14 28 28 14-28 14 14 28-30 6-6 30-28-14-14 28-14-28-28 14-6-30-30-6 14-28-28-14 28-14-14-28 30-6 6-30 28 14z" stroke="#E3A73B" stroke-width="2" fill="rgba(227,167,59,0.12)"/>
+          <circle cx="200" cy="200" r="52" stroke="#E3A73B" stroke-width="2" fill="none"/>
+        </g>
+        <g class="g2">
+          <path d="M314 250l9 18 18-9 4 20 20 4-9 18 18 9-18 9 9 18-20 4-4 20-18-9-9 18-9-18-18 9-4-20-20-4 9-18-18-9 18-9-9-18 20-4 4-20 18 9z" stroke="#F5F1E8" stroke-width="1.6" fill="rgba(245,241,232,0.08)"/>
+          <circle cx="314" cy="314" r="34" stroke="#F5F1E8" stroke-width="1.6" fill="none"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="nosotros">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Sobre nosotros</h2>
+      <span class="section-num">01 / Empresa</span>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>En <strong>ARPER E.I.R.L.</strong> nos especializamos en ingeniería naval e industrial, brindando soluciones integrales en diseño, fabricación, montaje, reparación y mantenimiento predictivo y correctivo.</p>
+        <p>Nuestro equipo está conformado por profesionales y especialistas con amplia trayectoria en el sector. Conocemos a fondo los desafíos y exigencias operativas de nuestros clientes, lo que nos permite ofrecer una atención personalizada, respuesta ágil y servicios de máxima calidad.</p>
+        <div class="hse-badge">✓ Políticas estrictas de Seguridad, Salud y Protección del Medio Ambiente (HSE)</div>
+      </div>
+      <div class="mv-list">
+        <div class="mv-item">
+          <h3>Misión</h3>
+          <p>Satisfacer las necesidades técnicas e industriales de nuestros clientes con excelencia y rigor operativo. Nos anticipamos a sus requerimientos y superamos sus expectativas para consolidarnos como su socio estratégico clave en el desarrollo de cada proyecto.</p>
+        </div>
+        <div class="mv-item">
+          <h3>Visión</h3>
+          <p>Ser la empresa líder a nivel nacional en el sector de ingeniería naval e industrial, reconocida por nuestros clientes, colaboradores y competidores por nuestros altos estándares de seguridad, calidad, sostenibilidad y productividad.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Valores y principios</h2>
+      <span class="section-num">02 / Cultura</span>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <span class="vnum">01</span>
+        <h3>Excelencia y calidad</h3>
+        <p>Aprendemos y crecemos bajo un modelo de mejora continua y capacitación constante.</p>
+      </div>
+      <div class="value-card">
+        <span class="vnum">02</span>
+        <h3>Integridad y compromiso</h3>
+        <p>Actuamos con ética, transparencia y pasión por nuestra organización y clientes.</p>
+      </div>
+      <div class="value-card">
+        <span class="vnum">03</span>
+        <h3>Tecnología e innovación</h3>
+        <p>Trascendemos en el mercado combinando la experiencia técnica con tecnología de vanguardia.</p>
+      </div>
+      <div class="value-card">
+        <span class="vnum">04</span>
+        <h3>Trabajo en equipo</h3>
+        <p>Fomentamos la comunicación fluida, la perseverancia y el profesionalismo en cada proyecto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicios">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Servicios y especialidades</h2>
+      <span class="section-num">03 / Líneas de negocio</span>
+    </div>
+    <p style="max-width:70ch; color:#333; margin:-24px 0 8px;">Ofrecemos servicios de reparación, mantenimiento especializado y venta de repuestos —nacionales e importados— para las siguientes líneas de negocio:</p>
+
+    <div class="service-block">
+      <div class="service-head">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0E2A3D" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        </div>
+        <h3>Máquinas principales y grupos electrógenos</h3>
+      </div>
+      <ul class="service-list">
+        <li>Bombas de inyección, inyectores y gobernadores</li>
+        <li>Culatas, enfriadores, variadores y cajas de cambio</li>
+        <li>Turbos y sistemas PLC</li>
+      </ul>
+    </div>
+
+    <div class="service-block">
+      <div class="service-head">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0E2A3D" stroke-width="1.6"><path d="M2 12c2-2.5 4-2.5 6 0s4 2.5 6 0 4-2.5 6 0M2 18c2-2.5 4-2.5 6 0s4 2.5 6 0 4-2.5 6 0M2 6c2-2.5 4-2.5 6 0s4 2.5 6 0 4-2.5 6 0"/></svg>
+        </div>
+        <h3>Equipos auxiliares navales e industriales</h3>
+      </div>
+      <ul class="service-list">
+        <li>Electrobombas (agua dulce/salada, lubricación, precalentamiento y trasvase de petróleo)</li>
+        <li>Electrocompresores y válvulas industriales</li>
+        <li>Cabrestantes y winches</li>
+      </ul>
+    </div>
+
+    <div class="service-block">
+      <div class="service-head">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0E2A3D" stroke-width="1.6"><path d="M13 2L3 14h7l-1 8 11-13h-7l1-7z"/></svg>
+        </div>
+        <h3>Equipos eléctricos, mecánicos y complementarios</h3>
+      </div>
+      <ul class="service-list">
+        <li>Motobombas y electrobombas de pozo profundo</li>
+        <li>Motores eléctricos y motores fuera de borda</li>
+        <li>Compresoras de aire (alta y baja presión)</li>
+        <li>Tableros eléctricos y subestaciones eléctricas</li>
+        <li>Servicios de torno, fresa, calderería y metalmecánica</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="clients" id="clientes">
+  <div class="wrap">
+    <p class="tag">CONFIANZA COMPROBADA</p>
+    <h2>Algunos de nuestros clientes</h2>
+    <div class="client-row">
+      <div class="client-chip">Cosmos</div>
+      <div class="client-chip">Navifuels</div>
+      <div class="client-chip">Petrotankers Shipping Company</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>¿Necesitas asesoramiento técnico?</h2>
+      <span class="section-num">04 / Contacto</span>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p class="tag">HABLEMOS DE TU PROYECTO</p>
+        <p>Nuestro equipo técnico especializado está a tu disposición en todo momento para responder tus consultas, evaluar tus equipos o brindarte la solución ideal para tu empresa.</p>
+        <div class="contact-detail">
+          <div>
+            <div class="dlabel">Correo</div>
+            <div class="dval">contacto@arpereirl.com</div>
+          </div>
+          <div>
+            <div class="dlabel">Teléfono / WhatsApp</div>
+            <div class="dval">+51 999 999 999</div>
+          </div>
+          <div>
+            <div class="dlabel">Ubicación</div>
+            <div class="dval">Callao, Perú</div>
+          </div>
+        </div>
+        <p style="font-size:0.8rem; color:var(--steel); margin-top:26px;">* Actualiza estos datos de contacto con la información real de ARPER E.I.R.L.</p>
+      </div>
+      <form id="contactForm">
+        <div class="form-row">
+          <div>
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+          <div>
+            <label for="empresa">Empresa</label>
+            <input type="text" id="empresa" name="empresa">
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" required>
+          </div>
+          <div>
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono">
+          </div>
+        </div>
+        <div>
+          <label for="servicio">Línea de negocio de interés</label>
+          <select id="servicio" name="servicio">
+            <option value="">Selecciona una opción</option>
+            <option>Máquinas principales y grupos electrógenos</option>
+            <option>Equipos auxiliares navales e industriales</option>
+            <option>Equipos eléctricos, mecánicos y complementarios</option>
+            <option>Otro / No estoy seguro</option>
+          </select>
+        </div>
+        <div>
+          <label for="mensaje">Cuéntanos qué necesitas</label>
+          <textarea id="mensaje" name="mensaje" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Solicitar cotización</button>
+        <p class="form-note" id="formNote"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <span class="brand-text" style="color:#F5F1E8;">ARPER E.I.R.L.</span>
+    <span>© <span id="year"></span> ARPER E.I.R.L. — Ingeniería Naval e Industrial. Todos los derechos reservados.</span>
+  </div>
+</footer>
+
+<script>
+  // Año dinámico en el footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Menú móvil
+  const burger = document.getElementById('burgerBtn');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    burger.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Validación simple del formulario de contacto
+  const form = document.getElementById('contactForm');
+  const note = document.getElementById('formNote');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const correo = document.getElementById('correo').value.trim();
+    const mensaje = document.getElementById('mensaje').value.trim();
+
+    if (!nombre || !correo || !mensaje) {
+      note.textContent = 'Por favor completa los campos obligatorios.';
+      note.style.color = '#b3261e';
+      return;
+    }
+    const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
+    if (!correoValido) {
+      note.textContent = 'Ingresa un correo electrónico válido.';
+      note.style.color = '#b3261e';
+      return;
+    }
+
+    // Aquí se puede integrar un backend, servicio de email (p. ej. Formspree) o WhatsApp.
+    note.textContent = '¡Gracias! Hemos recibido tu solicitud. Nuestro equipo te contactará pronto.';
+    note.style.color = '#0E2A3D';
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
