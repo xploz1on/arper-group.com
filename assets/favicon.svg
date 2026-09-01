@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="arperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E2238"/>
+      <stop offset="100%" stop-color="#060D17"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+  <!-- Background rounded squircle with rounded corners -->
+  <rect width="64" height="64" rx="18" fill="url(#arperGrad)"/>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-opacity="0.5"/>
+  
+  <!-- Stylized Industrial A & Anchor Gear Mark -->
+  <g transform="translate(12, 10)">
+    <!-- Gear Teeth Accents -->
+    <path d="M20 3 L20 0 M20 37 L20 40 M2 20 L-1 20 M38 20 L41 20" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <!-- Outer Gear Arc -->
+    <circle cx="20" cy="20" r="16" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="6 3" stroke-opacity="0.35"/>
+    
+    <!-- Letter A with Naval Anchor Apex -->
+    <path d="M20 6 L9 32 M20 6 L31 32" stroke="url(#goldGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M13 23 L27 23" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Anchor Crown / Base Arc -->
+    <path d="M10 28 C14 36, 26 36, 30 28" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <!-- Central Anchor Fluke / Dot -->
+    <circle cx="20" cy="6" r="2.5" fill="#FFFFFF"/>
+    <circle cx="20" cy="33" r="1.5" fill="url(#goldGrad)"/>
+  </g>
+</svg>
